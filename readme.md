@@ -27,6 +27,47 @@ mermaid:
   src: 'path/to/mermaid.js'
 ```
 
+## Jekyll Hint
+
+To get the CSS for this page you may want to make a few additions
+
+### Front matter variable
+You may want to add a custom variable `mermaid` to make sure the CSS applies only to pages that need it.
+```ruby
+---
+layout: post
+title:  "Your awesome title!"
+mermaid: true
+---
+```
+
+### Mermaid CSS addition
+[CDNJS mermaid](https://cdnjs.com/libraries/mermaid) is a good source to add to your page.
+
+```html
+{% if page.mermaid %}
+<script type="text/javascript">
+    // your custom JS for mermaid, goes here
+</script>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/7.0.0/mermaid.forest.min.css">
+<!--href="or/path/to/your/local/mermaid/css">-->
+
+<style>
+    /* same sample CSS changes if needed */
+    .mermaid {
+        margin: auto;
+        overflow: auto;
+        width: 100%;
+        overflow-x: visible;
+        border: 3px solid #73AD21;
+        padding: 10px;
+        text-align: center;
+    }
+</style>
+{% endif %}
+```
 
 ## Usage
 
